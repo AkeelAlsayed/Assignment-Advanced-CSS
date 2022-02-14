@@ -1,0 +1,83 @@
+@import "variables";
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+// mixin function for .grid__wrapper
+@mixin nth-children($backgroundboxcolor) {
+  position: relative;
+  background-color: $backgroundboxcolor;
+  display: grid;
+  justify-content: center;
+  border-radius: 10px;
+}
+// .containerl
+.container2 {
+  display: grid;
+  padding: 25px;
+  min-width: 341px;
+  background-color: $pagebackground;
+  // .grid__wrapper background color and columns
+  .grid__wrapper {
+    display: grid;
+    grid-template-columns: repeat(3, auto-fit);
+    grid-gap: 20px;
+    &.grid__wrapper > div:nth-child(2n + 1) {
+      @include nth-children(#42447e);
+    }
+    &.grid__wrapper > div:nth-child(2n + 2) {
+      @include nth-children(#1a1ea1);
+    }
+
+    .btn {
+      border-radius: 10px;
+      text-decoration: none;
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      display: grid;
+      justify-content: center;
+      align-content: center;
+      opacity: 0;
+      transition-duration: 750ms;
+      &:hover {
+        background-color: rgb(51, 49, 49);
+        opacity: 1;
+      }
+    }
+    .btn h1 {
+      text-decoration-style: none;
+      background-color: white;
+      border-radius: 5px;
+      font-size: 1rem;
+      padding: 5px 10px;
+    }
+
+    img {
+      border-radius: 10px;
+      max-width: 100%;
+    }
+  }
+}
+// media quaiers for screen scale
+// desktop
+@media (max-width: 1024px) {
+  .grid__wrapper {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+// tablet
+@media (min-width: 700px) {
+  .grid__wrapper {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+// smart phone
+@media (max-width: 480px) {
+  .grid__wrapper {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}

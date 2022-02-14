@@ -1,0 +1,20 @@
+//  identify the grid area
+.boxes > div:nth-child(1n) {
+  background-color: $pagebackground;
+}
+
+.boxes {
+  display: grid;
+  grid-template-columns: repeat(12, auto-fit);
+  grid-template-rows: repeat(12, auto-fit);
+}
+
+.header {
+  grid-column: 1 / 12;
+  grid-row: 1/3;
+}
+
+.content {
+  grid-column: 1/12;
+  grid-row: 3/7;
+}

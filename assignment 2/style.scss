@@ -1,0 +1,142 @@
+@import "variables";
+@import "header";
+@import "portfolio";
+@import "site-layout-grid";
+// mixin functions
+@mixin imagebefore() {
+  margin: 0 15px 0 20px;
+  position: relative;
+  top: 10px;
+}
+@mixin hoversetting() {
+  animation-name: expand1;
+  animation-duration: 700ms;
+  animation-fill-mode: forwards;
+  animation-timing-function: cubic-bezier(0.36, 0.88, 0.72, 1.5);
+  box-shadow: 0px 2px 8px 2px rgb(63, 63, 63);
+  border-radius: 10px;
+}
+// menu wrapper
+.menu {
+  position: absolute;
+  right: 70px;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+// container3
+.container3 {
+  position: fixed;
+  width: 500px;
+  top: 150px;
+  box-shadow: 0px 2px 8px 2px rgb(63, 63, 63);
+  animation-name: expand;
+  animation-duration: 2000ms;
+  animation-fill-mode: forwards;
+  animation-timing-function: cubic-bezier(0.51, 0.85, 0.67, 1.22);
+  &.container3 ul {
+    list-style: none;
+    li {
+      height: 60px;
+      position: relative;
+    }
+    li a {
+      text-decoration: none;
+      font-family: "monterrat", sans-serif;
+      font-size: 0.8rem;
+      display: block;
+      width: 100%;
+      height: 100%;
+      line-height: 60px;
+      padding-right: 25%;
+      border-bottom: 0.1px solid black;
+      color: white;
+      text-transform: uppercase;
+      &:hover {
+        border-radius: 10px;
+      }
+    }
+    // blog
+    .blog {
+      background-color: #e17b77;
+      &:hover {
+        @include hoversetting();
+      }
+      a {
+        &::before {
+          content: url(images/blog.png);
+          @include imagebefore();
+        }
+      }
+    }
+    // twitter
+    .twitter {
+      background-color: #00aced;
+      &:hover {
+        @include hoversetting();
+      }
+      a {
+        &::before {
+          content: url(images/twitter.png);
+          @include imagebefore();
+        }
+      }
+    }
+    // linkedin
+    .linkedin {
+      background-color: #007bb6;
+      &:hover {
+        @include hoversetting();
+      }
+      a {
+        &::before {
+          content: url(images/linkedin.png);
+          @include imagebefore();
+        }
+      }
+    }
+    // facebook
+    .facebook {
+      background-color: #3b5998;
+      &:hover {
+        @include hoversetting();
+      }
+      a {
+        &::before {
+          content: url(images/facebook.png);
+          @include imagebefore();
+        }
+      }
+    }
+    // github
+    .github {
+      background-color: #333;
+      &:hover {
+        @include hoversetting();
+      }
+      a {
+        &::before {
+          content: url(images/github.png);
+          @include imagebefore();
+        }
+      }
+    }
+  }
+}
+// keyframes functions
+@keyframes expand {
+  from {
+    transform: translateY(-1000px);
+  }
+  to {
+    transform: translateY(0px);
+  }
+}
+@keyframes expand1 {
+  from {
+    transform: translateX(0px);
+  }
+  to {
+    transform: translateX(-200px);
+  }
+}

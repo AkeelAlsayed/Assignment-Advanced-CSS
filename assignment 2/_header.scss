@@ -1,0 +1,77 @@
+@import "variables";
+// mixin function for with and height to prevent repeat
+@mixin image($width, $height) {
+  width: $width;
+  height: $height;
+}
+// mixin flexcenter with flexdiraction and padding values
+@mixin flexcenter($flexdiraction, $padding) {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-direction: $flexdiraction;
+  padding: $padding;
+}
+// container
+.container1 {
+  @include flexcenter(none, (0 0 0.2em 0));
+  background-color: $pagebackground;
+  height: 100%;
+  box-sizing: border-box;
+  min-width: 330px;
+}
+.container {
+  @include flexcenter(row, 1em);
+  // box
+  &__box {
+    background-color: $textbackground;
+    width: 100%;
+    height: 100%;
+    border-radius: 1em;
+    min-width: 360px;
+    min-height: 117px;
+    max-width: 331px;
+    max-height: 780px;
+    box-shadow: 8px 5px #b1b1b1;
+    margin: 20px;
+  }
+  &__paragraph {
+    padding: 1em 2em;
+    line-height: 140%;
+  }
+  // image code
+  &__image {
+    background-color: $textbackground;
+    @include flexcenter(row, 0);
+    img {
+      @include image(150px, 150px);
+      align-items: center;
+      border-radius: 50%;
+      background-color: $textbackground;
+      border: solid $textbackground 5px;
+      position: relative;
+      top: 2em;
+      object-fit: cover;
+    }
+  }
+  // The footer of the header(exercise one)
+  &__footer {
+    background-color: $footercolor;
+    min-height: inherit;
+    display: flex;
+    font-size: 1rem;
+    @include flexcenter(column, 1em);
+    text-align: center;
+    border-bottom-left-radius: 1em;
+    border-bottom-right-radius: 1em;
+  }
+}
+// media quaries for the header
+@media (max-width: 480px) {
+  .container1 {
+    transform: scale(0.8);
+  }
+  .header {
+    min-width: 341px;
+  }
+}
